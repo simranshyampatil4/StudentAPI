@@ -1,0 +1,45 @@
+<div mat-dialog-title>Student Form</div>
+<form [formGroup]="studentform" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+    <div class="row">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" placeholder="Ex. Simran" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Roll No</mat-label>
+                <input matInput  type="number" placeholder="Ex. 12" formControlName="rollNo">
+            </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Ex. simran@gmail.com" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" placeholder="Ex. 18" formControlName="age">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-radio-group formControlName="isMale" aria-label="Select an option">
+          <mat-label><b>Gender</b></mat-label>
+          <mat-radio-button value="true">Male</mat-radio-button>
+          <mat-radio-button value="false">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Date of Admission</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button color="warn"type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{data?'Update':'Save'}}</button>
+</div>
+</form>
+
